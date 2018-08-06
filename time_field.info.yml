@@ -1,0 +1,5 @@
+name: 'Time field'
+type: module
+description: 'Time field'
+package: 'Custom'
+core: '8.x'
