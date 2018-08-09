@@ -79,29 +79,16 @@ class TimeDefaultWidget extends WidgetBase{
     {
         $element = [];
         $value = isset($items[$delta]->value) ? $items[$delta]->value : '';
+
         $element += [
-            '#type' => 'textfield',
+            '#title' => $element['#title'],
+            '#type' => 'time_field_element',
             '#default_value' => $value,
-            '#size' => 7,
-            '#maxlength' => 7,
-            '#element_validate' => [
-                [static::class, 'validate'],
-            ],
+            '#required' => $element['#required'],
         ];
         return ['value' => $element];
     }
 
 
-
-    /**
-     * Validate the time text field.
-     */
-    public static function validate($element, FormStateInterface $form_state) {
-        $value = $element['#value'];
-        if (strlen($value) == 0) {
-            $form_state->setValueForElement($element, '');
-            return;
-        }
-    }
 
 }
